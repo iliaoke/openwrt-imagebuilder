@@ -12,12 +12,7 @@ jobs:
       run: |
        sudo apt update
        sudo apt install tar zstd
-       sudo -E apt-get -qq install build-essential clang llvm flex g++ gawk gcc-multilib gettext \
-       git libncurses5-dev libssl-dev python3-distutils python3-pyelftools python3-setuptools \
-       python3-dev python3-pip rsync unzip zlib1g-dev swig aria2 jq subversion qemu-utils ccache rename \
-       libelf-dev device-tree-compiler libgnutls28-dev coccinelle libgmp3-dev libmpc-dev libfuse-dev gcc-multilib
-        pip3 install --user -U pylibfdt
-        
+       sudo apt-get install -y build-essential flex bison clang-17 cmake g++ gawk gcc-multilib g++-multilib gettext git libfuse-dev libncurses5-dev libssl-dev python3 python3-pip python3-ply python3-distutils python3-pyelftools rsync unzip zlib1g-dev file wget subversion patch upx-ucl autoconf automake curl asciidoc binutils bzip2 lib32gcc-s1 libc6-dev-i386 uglifyjs msmtp texinfo libreadline-dev libglib2.0-dev xmlto libelf-dev libtool autopoint antlr3 gperf ccache swig coreutils haveged scons libpython3-dev rename qemu-utils
        curl https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
        tar -I zstd -xvf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
        cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
