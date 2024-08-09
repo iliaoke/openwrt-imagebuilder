@@ -12,7 +12,7 @@ jobs:
       run: |
        sudo -E apt-get -y update
        sudo -E apt-get -y dist-upgrade
-       sudo -E apt-get -y install antlr3 asciidoc binutils build-essential bzip2 curl gawk gettext git libncurses5-dev libuv1-dev patch python2.7 python3.6 unzip zlib1g-dev lib32gcc1 libc6-dev libc6-dev-i386 subversion flex node-uglify gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx-ucl libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib linux-libc-dev swig wget
+       sudo -E apt-get -y install antlr3 asciidoc binutils build-essential bzip2 curl gawk gettext git libncurses5-dev libuv1-dev patch python2.7 python3.6 unzip zlib1g-dev lib32gcc-s1 libc6-dev libc6-dev-i386 subversion flex node-uglify gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx-ucl libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib linux-libc-dev swig wget
        sudo apt install tar zstd
        curl https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
        tar -I zstd -xvf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
