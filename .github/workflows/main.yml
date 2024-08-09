@@ -22,4 +22,4 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@main
       with:
-        path: immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64/bin/targets/rockchip/armv8/*
+        path: immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64/bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r2s-ext4-sysupgrade.img.gz
