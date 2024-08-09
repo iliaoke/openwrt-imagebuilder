@@ -1,0 +1,20 @@
+name: Patch Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Set up 
+      run: |
+       sudo apt-get update
+       sudo apt install tar zstd
+       sudo apt install build-essential libncurses5-dev libncursesw5-dev \ zlib1g-dev gawk git gettext libssl-dev xsltproc rsync wget unzip python
+       curl https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+       tar -I zstd -xvf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+       cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
+       make image PROFILE="friendlyarm_nanopi-r2s" PACKAGES=""
+    
