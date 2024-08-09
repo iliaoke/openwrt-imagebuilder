@@ -8,10 +8,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-    - name: Step 01 - Init build env
-      run: scripts/cisteps/build-openwrt/01-init_env.sh
-      
     - name: Set up 
       run: |
        sudo apt update
