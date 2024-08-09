@@ -10,9 +10,24 @@ jobs:
     steps:
     - name: Set up 
       run: |
-       sudo sh -c 'echo "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" >> /etc/apt/sources.list'
-       sudo sh -c 'echo "deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main" >> /etc/apt/sources.list'
-       wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+       sudo echo -e "
+         # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+         deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+         # deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+         deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+         # deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+         deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+         # deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+
+         # 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+         deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+         # deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+
+         # 预发布软件源，不建议启用
+         # deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+         # # deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+        " | sudo tee /etc/apt/sources.list
+
        sudo apt update
        sudo apt install tar zstd
        sudo apt-get install -y build-essential flex bison clang-17 cmake g++ gawk gcc-multilib g++-multilib gettext git libfuse-dev libncurses5-dev libssl-dev python3 python3-pip python3-ply python3-distutils python3-pyelftools rsync unzip zlib1g-dev file wget subversion patch upx-ucl autoconf automake curl asciidoc binutils bzip2 lib32gcc-s1 libc6-dev-i386 uglifyjs msmtp texinfo libreadline-dev libglib2.0-dev xmlto libelf-dev libtool autopoint antlr3 gperf ccache swig coreutils haveged scons libpython3-dev rename qemu-utils
