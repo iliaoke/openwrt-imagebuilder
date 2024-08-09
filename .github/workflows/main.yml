@@ -12,7 +12,7 @@ jobs:
       run: |
        sudo apt update
        sudo apt install tar zstd
-       sudo apt install build-essential libncurses5-dev libncursesw5-dev \ gawk git gettext libssl-dev xsltproc rsync wget unzip 2to3 python2-minimal python2 dh-python python-is-python3
+       sudo bash -c 'bash <(curl -sL https://build-scripts.immortalwrt.org/init_build_environment.sh)'
        curl https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
        tar -I zstd -xvf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
        cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
